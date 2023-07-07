@@ -57,7 +57,7 @@ def clean_data(path):
     df['weight'] = df['weight'].apply(get_weight_in_kg)
     df['salary'] = df['salary'].apply(remove_dollar_sign)
     df['country'] = df['country'].apply(categorize_country)
-    df['draft_round'] = df['draft_round'].apply(handle_draft_round))
+    df['draft_round'] = df['draft_round'].apply(handle_draft_round)
     return df
 
 
