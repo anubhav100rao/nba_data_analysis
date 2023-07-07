@@ -39,7 +39,7 @@ def remove_dollar_sign(value):
 def categorize_country(country):
     if country == 'USA':
         return 'USA'
-    return 'NON-USA'
+    return 'Not-USA'
 
 
 def handle_draft_round(round):
@@ -51,14 +51,13 @@ def handle_draft_round(round):
 def clean_data(path):
     df = pd.read_csv(path)
     df['b_day'] = pd.to_datetime(df['b_day'])
-    df['draft_year'] = pd.to_datetime(df['draft_year'])
-    df['team'].fillna('No team', inplace=True)
+    df['draft_year'] = pd.to_datetime(df['draft_year'], format='%Y')
+    df['team'].fillna('No Team', inplace=True)
     df['height'] = df['height'].apply(get_height_in_metres)
     df['weight'] = df['weight'].apply(get_weight_in_kg)
     df['salary'] = df['salary'].apply(remove_dollar_sign)
     df['country'] = df['country'].apply(categorize_country)
-    df['draft_round'] = df['draft_round'].apply(handle_draft_round)
-
+    df['draft_round'] = df['draft_round'].apply(handle_draft_round))
     return df
 
 
