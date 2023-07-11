@@ -71,13 +71,11 @@ def feature_data(df):
     df['age'] = (df['version'] - df['b_day']) / np.timedelta64(1, 'Y')
     df['age'] = df['age'].astype(int)
     df['age'] += 1
-    df['experience'] = (df['version'] - df['draft_year']) / \
-        np.timedelta64(1, 'Y')
+    df['experience'] = (df['version'] - df['draft_year']) / np.timedelta64(1, 'Y')
     df['experience'] = df['experience'].astype(int)
 
     df['bmi'] = df['weight'] / (df['height'] ** 2)
-    df.drop(['version', 'b_day', 'draft_year',
-            'weight', 'height'], axis=1, inplace=True)
+    df.drop(['version', 'b_day', 'draft_year', 'weight', 'height'], axis=1, inplace=True)
 
     columns = df.columns.tolist()
     for col in columns:
