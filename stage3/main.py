@@ -97,8 +97,7 @@ def print_corr_heatmap(df):
     data = df[['age', 'experience', 'bmi', 'salary']]
     data = data.corr()
 
-    plt.imshow(data.corr(), cmap='Spectral',
-               interpolation='none', aspect='auto')
+    plt.imshow(data.corr(), cmap='Spectral', interpolation='none', aspect='auto')
     plt.colorbar()
     plt.xticks(range(len(data.corr().columns)), data.corr().columns)
     plt.yticks(range(len(data.corr().columns)), data.corr().columns)
